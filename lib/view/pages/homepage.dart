@@ -272,7 +272,7 @@ class _ProgressiveCardScreenState extends State<ProgressiveCardScreen>
                     height: 50,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/circle.jpeg'),
+                          image: AssetImage('assets/Tcircle.png'),
                           fit: BoxFit.cover),
                     ),
                   ),
