@@ -1,6 +1,9 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:bankwebsite/Widget/card.dart';
 import 'package:bankwebsite/Widget/customPaint.dart';
 import 'package:bankwebsite/Widget/linearText.dart';
+import 'package:bankwebsite/Widget/textButton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
