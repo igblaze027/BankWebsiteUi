@@ -1,178 +1,7 @@
-// import 'package:bankwebsite/Widget/card.dart';
-// import 'package:bankwebsite/Widget/customPaint.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
-
-// class ProgressiveCardScreen extends StatefulWidget {
-//   const ProgressiveCardScreen({super.key});
-
-//   @override
-//   // ignore: library_private_types_in_public_api
-//   _ProgressiveCardScreenState createState() => _ProgressiveCardScreenState();
-// }
-
-// class _ProgressiveCardScreenState extends State<ProgressiveCardScreen>
-//     with SingleTickerProviderStateMixin {
-//   late AnimationController _controller;
-//   late Animation<double> _lineAnimation;
-//   double linePosition = 0;
-
-//   final double cardWidth = 200; // Smaller card width
-//   final double cardHeight = 300; // Smaller card height
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _controller = AnimationController(
-//       vsync: this,
-//       duration: const Duration(seconds: 8),
-//     );
-
-//     _lineAnimation = Tween<double>(
-//       begin: MediaQueryData.fromView(WidgetsBinding.instance.window)
-//           .size
-//           .width, // Start from screen width
-//       end: 0, // Move to the left
-//     ).animate(CurvedAnimation(
-//       parent: _controller,
-//       curve: Curves.linear,
-//     ))
-//       ..addListener(() {
-//         setState(() {
-//           linePosition = _lineAnimation.value;
-//         });
-//       });
-
-//     _controller.repeat();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final screenWidth = MediaQuery.of(context).size.width;
-
-//     return Scaffold(
-//       body: Stack(
-//         children: [
-//           // Background with gradient, blur, and curve
-//           CustomPaint(
-//             size: MediaQuery.of(context).size,
-//             painter: ReversedGradientPainter(),
-//           ),
-//           Positioned(
-//             bottom: 300,
-//             top: 100,
-//             child: Container(
-//               height: 200,
-//               width: screenWidth,
-//               color: Colors.black,
-//             ),
-//           ),
-//           // First Clipped Card
-//           Positioned(
-//             top: 100,
-//             left: 50,
-//             child: ClipRect(
-//               clipper: CardClipper(linePosition - 50, cardWidth),
-//               // child: Container(
-//               //   width: cardWidth,
-//               //   height: cardHeight,
-//               //   color: Colors.blue,
-//               //   child: const Center(
-//               //     child: Text(
-//               //       'Card 1',
-//               //       style: TextStyle(
-//               //         color: Colors.white,
-//               //         fontSize: 20,
-//               //       ),
-//               //     ),
-//               //   ),
-//               // ),
-//               child: Image.asset(
-//                 'assets/PurpleCard.png',
-//                 width: cardWidth,
-//                 height: cardHeight,
-//                 fit: BoxFit.cover,
-//                 errorBuilder: (context, error, stackTrace) {
-//                   return const Center(
-//                     child: Text(
-//                       'Image not found',
-//                       style: TextStyle(color: Colors.red),
-//                     ),
-//                   );
-//                 },
-//               ),
-//             ),
-//           ),
-
-//           // Second Clipped Card
-//           Positioned(
-//             top: 100,
-//             left: 300,
-//             child: ClipRect(
-//               clipper: CardClipper(linePosition - 300, cardWidth),
-//               child: Image.asset(
-//                 'assets/whiteCard.png',
-//                 width: cardWidth,
-//                 height: cardHeight,
-//                 fit: BoxFit.cover,
-//                 errorBuilder: (context, error, stackTrace) {
-//                   return const Center(
-//                     child: Text(
-//                       'Image not found',
-//                       style: TextStyle(color: Colors.red),
-//                     ),
-//                   );
-//                 },
-//               ),
-//               // child: Container(
-//               //   width: cardWidth,
-//               //   height: cardHeight,
-//               //   color: Colors.blue,
-//               //   child: const Center(
-//               //     child: Text(
-//               //       'Card 1',
-//               //       style: TextStyle(
-//               //         color: Colors.white,
-//               //         fontSize: 20,
-//               //       ),
-//               //     ),
-//               //   ),
-//               // ),
-//             ),
-//           ),
-
-//           // Moving Line
-//           Positioned(
-//             right: screenWidth - linePosition,
-//             top: 0,
-//             child: Container(
-//               width: 2,
-//               height: MediaQuery.of(context).size.height,
-//               color: Colors.red,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
-// }
-
-// ignore_for_file: sized_box_for_whitespace
-
-import 'package:bankwebsite/Widget/CurvedContainer.dart';
 import 'package:bankwebsite/Widget/card.dart';
 import 'package:bankwebsite/Widget/customPaint.dart';
 import 'package:bankwebsite/Widget/linearText.dart';
-import 'package:bankwebsite/Widget/violetcontainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
@@ -192,14 +21,14 @@ class _ProgressiveCardScreenState extends State<ProgressiveCardScreen>
 
   final double cardWidth = 200; // Smaller card width
   final double cardHeight = 300; // Card height
-  final double cardSpacing = 50; // Space between the cards
+  final double cardSpacing = 250; // Space between the cards
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 8),
+      duration: const Duration(seconds: 5),
     );
 
     _lineAnimation = Tween<double>(
